@@ -13,7 +13,6 @@ define('DB_HOST', $_ENV{DATABASE_SERVER});
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
-
 /**#@+
  * Authentication Unique Keys and Salts: https://api.wordpress.org/secret-key/1.1/salt/
  */
@@ -73,9 +72,9 @@ $table_prefix  = 'aym_';
  //define('CODE_SNIPPETS_SAFE_MODE', true);
  
 # Post Control
-define('WP_POST_REVISIONS', 10);
-define('AUTOSAVE_INTERVAL', 300);
-define( 'EMPTY_TRASH_DAYS', 3 );
+//define('WP_POST_REVISIONS', 10);
+//define('AUTOSAVE_INTERVAL', 300);
+//define( 'EMPTY_TRASH_DAYS', 3 );
 
 # Cookie Paths (if changing admin url names)
 //define('SITECOOKIEPATH', preg_replace('|https?://[^/]+|i', '', 'http://www.candidbusiness.com' . '/' ) );

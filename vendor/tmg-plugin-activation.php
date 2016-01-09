@@ -7,10 +7,14 @@
  * @link         https://github.com/Wordpress-Development/genesis-bootstrap/
  *
 */
+
 /**
- * Include the TGM_Plugin_Activation class.
+ * Include the TGM_Plugin_Activation class. Currently
+ * this is being added through the load.php file
+ *
  */
 
+  // require_once dirname( __FILE__ ) . '/tmg-plugin-activation/class-tgm-plugin-activation.php';
 
 
 /**

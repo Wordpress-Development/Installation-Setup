@@ -11,7 +11,8 @@
  * Include the TGM_Plugin_Activation class.
  */
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+
+
 /**
  * Register the required plugins for this theme.
  *
@@ -26,7 +27,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function brw_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
@@ -187,3 +188,4 @@ function my_theme_register_required_plugins() {
 	);
 	tgmpa( $plugins, $config );
 }
+add_action( 'tgmpa_register', 'brw_register_required_plugins' );

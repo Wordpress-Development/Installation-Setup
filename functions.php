@@ -6,7 +6,6 @@
  * 
  */
 
-
 /** customize ACF path  */
 add_filter('acf/settings/path', 'bw_acf_settings_path');
 function bw_acf_settings_path( $path ) {

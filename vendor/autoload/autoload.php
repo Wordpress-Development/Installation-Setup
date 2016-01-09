@@ -7,8 +7,11 @@
  * floder name
  * 
  */
+
+
 function ig_mu_plugins_loader() {
-	if( ! defined( 'WPMU_PLUGIN_DIR' ) ) {
+	
+    if( ! defined( 'BW_AUTOLOAD_PLUGIN_DIR' ) {
 		return;
 	}
 
@@ -41,7 +44,7 @@ function ig_mu_plugins_loader() {
 
 	//load up mu-plugins from each valid directory
 	foreach( $mu_plugins_dirs as $dir ) {
-		$plugin_dir = trailingslashit( WPMU_PLUGIN_DIR ) . $dir;
+		$plugin_dir = trailingslashit( BW_AUTOLOAD_PLUGIN_DIR ) . $dir;
 		$plugin_file = trailingslashit( $plugin_dir ) . $dir . '.php';
 
 		if( is_dir( $plugin_dir ) && file_exists( $plugin_file ) ) {

@@ -8,6 +8,9 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . "vendor/*.php" ) as $file ) {
 // */
 
 
+define( 'BOOT_LOAD_MODULES', 1 )
+
+
 # Advanced Custom Fields Pro
 DEFINE('BW_ACF_SETTINGS_PATH', '/acf/'); // ACF path relative to this file
 DEFINE('ACF_5_KEY', 'b3JkZXJfaWQ9NzIyNzZ8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDEtMDkgMDU6MDA6MTU='); // ACF Pro Key

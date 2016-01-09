@@ -2,7 +2,7 @@
 /**
  * TGM Plugin
  *
- * @package      Bootstrap Genesis
+ * @package      Plugin Activation
  * @since        1.0
  * @link         https://github.com/Wordpress-Development/genesis-bootstrap/
  *

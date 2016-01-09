@@ -5,9 +5,10 @@
  * Description: Will load all plugins in this directory as 
  * long as the plugin file name is the same as the plugin
  * floder name
- * 
+ *
  */
 
+define('BW_AUTOLOAD_MODULES', true);
 
 function ig_mu_plugins_loader() {
 	

@@ -8,7 +8,6 @@
  *
  */
 
-define('BW_AUTOLOAD_MODULES', true);
 
 function ig_mu_plugins_loader() {
 	

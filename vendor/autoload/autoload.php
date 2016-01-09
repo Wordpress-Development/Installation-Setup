@@ -9,9 +9,9 @@
  */
 
 
-function ig_mu_plugins_loader() {
+function bsg_mu_plugins_loader() {
 	
-    if( ! defined( 'BW_AUTOLOAD_PLUGIN_DIR' ) {
+    if( ! defined( 'BOOT_LOAD_MODULES' ) {
 		return;
 	}
        
@@ -45,7 +45,7 @@ function ig_mu_plugins_loader() {
 
 	//load up mu-plugins from each valid directory
 	foreach( $mu_plugins_dirs as $dir ) {
-		$plugin_dir = trailingslashit( BW_AUTOLOAD_PLUGIN_DIR ) . $dir;
+		$plugin_dir = plugin_dir_path( __FILE__ ) . $dir;
 		$plugin_file = trailingslashit( $plugin_dir ) . $dir . '.php';
 
 		if( is_dir( $plugin_dir ) && file_exists( $plugin_file ) ) {
@@ -56,6 +56,6 @@ function ig_mu_plugins_loader() {
 	}
 }
 
-ig_mu_plugins_loader();
+bsg_mu_plugins_loader();
 
 //EOF

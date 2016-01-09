@@ -14,8 +14,9 @@ function ig_mu_plugins_loader() {
     if( ! defined( 'BW_AUTOLOAD_PLUGIN_DIR' ) {
 		return;
 	}
+       
 
-	$mu_plugins_dirs = array_filter( scandir( WPMU_PLUGIN_DIR ) );
+	$mu_plugins_dirs = array_filter( scandir() );
 
 	$non_dirs = array(
 		'.',

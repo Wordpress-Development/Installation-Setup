@@ -34,6 +34,9 @@ function exst( & $var, $default = "")
 /**
  * Remove Slider Revolution Metabox
  * for certain post types
+ *
+ * add_action( 'do_meta_boxes', 'remove_slider_rev_metabox' );
+ *
  */
 function remove_slider_rev_metabox() {
   if ( is_admin() ) {

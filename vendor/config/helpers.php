@@ -14,9 +14,7 @@
  * Example
  * $greeting = "Hello, ".exst($user_name, 'Visitor')." from ".exst($user_location);
  */
-
-function exst( & $var, $default = "")
-{
+function exst( & $var, $default = "") {
     $t = "";
     if ( !isset($var)  || !$var ) {
         if (isset($default) && $default != "") $t = $default;

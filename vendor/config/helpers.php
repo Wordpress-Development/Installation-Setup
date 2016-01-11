@@ -27,3 +27,19 @@ function exst( & $var, $default = "")
     if (is_string($t)) $t = trim($t);
     return $t;
 }
+
+
+
+
+/**
+ * Remove Slider Revolution Metabox
+ * for certain post types
+ */
+function remove_slider_rev_metabox() {
+  if ( is_admin() ) {
+    $post_types = array('page','post','acf');
+    foreach ($post_types as $post_type) { 
+      remove_meta_box( 'mymetabox_revslider_0', $post_type, 'normal' );
+    }
+  }
+}

@@ -41,6 +41,7 @@ define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . WP_CONTENT_F
 define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . $plugins );
 define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 //define( 'UPLOADS', 'assets'); // has issues sometimes
+
 //define('TEMPLATEPATH', get_template_directory());
 //define('STYLESHEETPATH', get_stylesheet_directory());
 //define('TEMPLATEPATH', '/absolute/path/to/wp-content/themes/active-theme');

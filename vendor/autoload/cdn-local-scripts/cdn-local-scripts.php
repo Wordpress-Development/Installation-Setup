@@ -101,3 +101,32 @@ EO_SCRIPT;
 		return $tag;
 	}
 }
+
+
+class WP_Scholar_Defer_Scripts {
+    public static function initialize() {
+        add_filter( 'script_loader_tag', array( __CLASS__, 'defer_scripts' ), 10, 2 );
+        add_filter( 'script_loader_tag', array( __CLASS__, 'async_scripts' ), 10, 2 );
+    }
+    public static function defer_scripts( $tag, $handle ) {
+        if ( wp_scripts()->get_data( $handle, 'defer' ) ) {
+            $tag = str_replace( '></', ' defer></', $tag );
+        }
+        return $tag;
+    }
+    public static function async_scripts( $tag, $handle ) {
+        if ( wp_scripts()->get_data( $handle, 'async' ) ) {
+            $tag = str_replace( '></', ' async></', $tag );
+        }
+        return $tag;
+    }
+}
+
+
+/*  #Useage
+add_action( 'login_enqueue_scripts', function () {
+    wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
+    wp_script_add_data( 'recaptcha', 'async', true );
+    wp_script_add_data( 'recaptcha', 'defer', true );
+} );
+// */

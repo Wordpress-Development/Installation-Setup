@@ -77,12 +77,12 @@ class WP_Scholar_Defer_Scripts {
 }
 
 
-/* 
+/* #Useage
 
 add_action( 'login_enqueue_scripts', function () {
 	wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
-    wp_script_add_data( 'recaptcha', 'async', 'true' );
-    wp_script_add_data( 'recaptcha', 'defer', 'true' );
+	wp_script_add_data( 'recaptcha', 'async', 'true' );
+	wp_script_add_data( 'recaptcha', 'defer', 'true' );
 } );
 
 */

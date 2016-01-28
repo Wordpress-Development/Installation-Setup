@@ -1,30 +1,84 @@
 <?php
+
 /**
- * Plugin Name: Widget Output Filters
- * Plugin URI:  http://philipnewcomer.net/wordpress-plugins/widget-output-filters/
- * Description: Enables developers to filter the output of any WordPress widget.
- * Author:      Philip Newcomer
- * Author URI:  http://philipnewcomer.net
- * Version:     1.1
- * License:     GPLv2 or later
+ * Class Widget_Output_Filters
  *
- * Copyright (C) 2015 Philip Newcomer
- * Based on code contained in the Widget Logic plugin by Alan Trewartha
+ * Allows developers to filter the output of any WordPress widget.
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * @link http://philipnewcomer.net/wordpress-plugins/widget-output-filters/
+ * @author Philip Newcomer
  */
 
-require_once( __DIR__ . '/src/class.Widget_Output_Filters.php' );
+if ( !class_exists(Widget_Output_Filters) ) {
+
+	class Widget_Output_Filters {
+
+	/**
+	 * Initializes the functionality by registering actions and filters.
+	 */
+	public function __construct() {
+
+		// Priority of 9 to run before the Widget Logic plugin.
+		add_filter( 'dynamic_sidebar_params', array( $this, 'filter_dynamic_sidebar_params' ), 9 );
+	}
+
+	/**
+	 * Replaces the widget's display callback with the Dynamic Sidebar Params display callback, storing the original callback for use later.
+	 *
+	 * The $sidebar_params variable is not modified; it is only used to get the current widget's ID.
+	 *
+	 * @param array $sidebar_params The sidebar parameters.
+	 *
+	 * @return array The sidebar parameters
+	 */
+	public function filter_dynamic_sidebar_params( $sidebar_params ) {
+
+		if ( is_admin() ) {
+			return $sidebar_params;
+		}
+
+		global $wp_registered_widgets;
+		$current_widget_id = $sidebar_params[0]['widget_id'];
+
+		$wp_registered_widgets[ $current_widget_id ]['original_callback'] = $wp_registered_widgets[ $current_widget_id ]['callback'];
+		$wp_registered_widgets[ $current_widget_id ]['callback'] = array( $this, 'display_widget' );
+
+		return $sidebar_params;
+	}
+
+	/**
+	 * Execute the widget's original callback function, filtering its output.
+	 */
+	public function display_widget() {
+
+		global $wp_registered_widgets;
+		$original_callback_params = func_get_args();
+
+		$widget_id         = $original_callback_params[0]['widget_id'];
+		$original_callback = $wp_registered_widgets[ $widget_id ]['original_callback'];
+
+		$widget_id_base = $original_callback[0]->id_base;
+		$sidebar_id     = $original_callback_params[0]['id'];
+
+		if ( is_callable( $original_callback ) ) {
+
+			ob_start();
+			call_user_func_array( $original_callback, $original_callback_params );
+			$widget_output = ob_get_clean();
+
+			/**
+			 * Filter the widget's output.
+			 *
+			 * @param string $widget_output  The widget's output.
+			 * @param string $widget_id_base The widget's base ID.
+			 * @param string $widget_id      The widget's full ID.
+			 * @param string $sidebar_id     The current sidebar ID.
+			 */
+			echo apply_filters( 'widget_output', $widget_output, $widget_id_base, $widget_id, $sidebar_id );
+		}
+	}
+}
+
 new Widget_Output_Filters();
+
+}

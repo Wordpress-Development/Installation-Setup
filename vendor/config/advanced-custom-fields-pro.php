@@ -31,7 +31,7 @@ add_action('after_switch_theme', 'brw_auto_set_license_keys');
 /** 
  * Set ACF 5 license key on theme activation.
  * 
- * wp.config - DEFINE('ACF_5_KEY', 'YOUR_KEY_GOES_HERE');
+ * wp-config/functions - DEFINE('ACF_5_KEY', 'b3JkZXJfaWQ9NzIyNzZ8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDEtMDkgMDU6MDA6MTU=');
  */
 function brw_auto_set_license_keys() {
   if ( !get_option('acf_pro_license') && defined('ACF_5_KEY') ) {

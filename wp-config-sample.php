@@ -90,8 +90,8 @@ define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 
 
 # Post Control
-//define('WP_POST_REVISIONS', 10);
-//define('AUTOSAVE_INTERVAL', 300);
+//define('WP_POST_REVISIONS', 7);
+//define('AUTOSAVE_INTERVAL', 600);
 //define( 'EMPTY_TRASH_DAYS', 3 );
 
 

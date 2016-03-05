@@ -12,6 +12,9 @@ define('DB_COLLATE', 'utf8_unicode_ci');
 $table_prefix  = 'aym_';
 
 
+// SSL Encryption - https://letsencrypt.org/getting-started/
+
+
 /**#@+
  * Authentication Unique Keys and Salts: https://api.wordpress.org/secret-key/1.1/salt/
  */

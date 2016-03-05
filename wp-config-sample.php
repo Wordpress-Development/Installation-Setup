@@ -6,12 +6,10 @@ define('DB_NAME', '');
 define('DB_USER', '');
 define('DB_PASSWORD', '');
 
-
 define('DB_HOST', $_ENV{DATABASE_SERVER}); 
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', 'utf8_unicode_ci');
 $table_prefix  = 'aym_';
-
 
 
 /**#@+
@@ -29,7 +27,7 @@ define('NONCE_SALT', 'put your unique phrase here');
 
 
 # Folder Constants
-/*
+/* 
 $wp_content = 'wp-content';
 $plugins = 'plugins';
 
@@ -40,9 +38,9 @@ define( 'WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME );
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . WP_CONTENT_FOLDERNAME );
 define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . $plugins );
 define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
-//define( 'UPLOADS', 'assets'); // has issues sometimes
 
-//define('TEMPLATEPATH', get_template_directory());
+//define('UPLOADS', 'assets'); // can have compatability issues with plugins
+//define('TEMPLATEPATH', get_template_directory()); 
 //define('STYLESHEETPATH', get_stylesheet_directory());
 //define('TEMPLATEPATH', '/absolute/path/to/wp-content/themes/active-theme');
 //define('STYLESHEETPATH', '/absolute/path/to/wp-content/themes/active-theme');
@@ -50,12 +48,13 @@ define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 
 
 # Caching
-//define( 'WP_CACHE', TRUE );
-//define( 'ENABLE_CACHE', true ); 
-//define( 'CONCATENATE_SCRIPTS', true );
-//define( 'COMPRESS_SCRIPTS', true );
-//define( 'COMPRESS_CSS', true );
-//define( 'CACHE_EXPIRATION_TIME', 3600); // in seconds
+//define( 'WP_CACHE', FALSE );
+define( 'ENABLE_CACHE', FALSE ); 
+define( 'CONCATENATE_SCRIPTS', FALSE ); // enables compression and concatenation of scripts and CSS
+define( 'COMPRESS_SCRIPTS', FALSE ); // enables compression of scripts
+define( 'COMPRESS_CSS', true ); // enables compression of CSS
+define( 'CACHE_EXPIRATION_TIME', 10000 ); // in seconds
+define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is deflate)
 
 
 # Default Theme Folder
@@ -63,7 +62,6 @@ define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 
 # Database
 //define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', true );
-
 
 # Fix Site 
 //define( 'WP_ALLOW_REPAIR', true ); // http://www.yoursite.com/wp-admin/maint/repair.php

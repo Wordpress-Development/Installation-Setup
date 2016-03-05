@@ -1,2 +1,4 @@
 # pass the default character set
 AddDefaultCharset utf-8
+
+# php_value max_execution_time 300

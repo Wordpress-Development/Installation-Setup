@@ -28,6 +28,21 @@ function exst( & $var, $default = "") {
 
 
 
+/** 
+ * Custom Output Buffer Wrapper 
+ * @link http://wordpress.stackexchange.com/q/1034/43806
+ * 
+ * Useage: $title = get_output('the_title');
+ */
+function get_output() {
+    $args     = func_get_args();
+    $callback = array_shift($args);
+    ob_start();
+    call_user_func_array($callback, $args);
+    return ob_get_clean();
+}
+
+
 
 /**
  * Remove Slider Revolution Metabox

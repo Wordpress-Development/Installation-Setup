@@ -38,6 +38,7 @@ function brw_register_required_plugins() {
 	 */
 	$plugins = array(
 	    
+	// Standard Plugins
         array(
             'name'      => 'Contact Form 7',
             'slug'      => 'contact-form-7',
@@ -49,28 +50,26 @@ function brw_register_required_plugins() {
             'required'  => false
         ),
         
-        /*
-        
-		// This is an example of how to include a plugin bundled with a theme.
-		array(
-			'name'               => 'TGM Example Plugin', // The plugin name.
-			'slug'               => 'tgm-example-plugin', // The plugin slug (typically the folder name).
-			'source'             => get_stylesheet_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source.
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
+	// Bundled Plugins
+	array(
+		'name'               => 'Genesis Bootstrap', // The plugin name.
+		'slug'               => 'genesis-bootstrap', // The plugin slug (typically the folder name).
+		'source'             => get_stylesheet_directory() . '/lib/plugins/genesis-bootstrap.zip', // The plugin source.
+		'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+		//'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+		'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		'external_url'       => 'https://github.com/Wordpress-Development/genesis-bootstrap', // If set, overrides default API URL and points to an external URL.
+		//'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+	),
 		// This is an example of how to include a plugin from an arbitrary external source in your theme.
-		array(
-			'name'         => 'TGM New Media Plugin', // The plugin name.
-			'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-			'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
-			'required'     => true, // If false, the plugin is only 'recommended' instead of required.
-			'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
-		),
+	array(
+		'name'         => 'TGM New Media Plugin', // The plugin name.
+		'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
+		'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
+		'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+		'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
+	),
 		// This is an example of how to include a plugin from a GitHub repository in your theme.
 		// This presumes that the plugin code is based in the root of the GitHub repository
 		// and not in a subdirectory ('/src') of the repository.
@@ -93,6 +92,9 @@ function brw_register_required_plugins() {
 		
 		// */
 	);
+	
+	
+	
 	/*
 	 * Array of configuration settings. Amend each line as needed.
 	 *
@@ -111,7 +113,7 @@ function brw_register_required_plugins() {
 		'has_notices'  => true,                    // Show admin notices or not.
 		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		/*
 		'strings'      => array(

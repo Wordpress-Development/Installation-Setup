@@ -122,8 +122,8 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define( 'DISALLOW_FILE_MODS', FALSE );
 //define( 'DISALLOW_FILE_EDIT', FALSE );
 //define( 'FS_METHOD', 'direct' );
-//define( 'FS_CHMOD_DIR', 0775 );
-//define( 'FS_CHMOD_FILE', 0664 );
+//define( 'FS_CHMOD_DIR', 0755 );
+//define( 'FS_CHMOD_FILE', 0644 );
 
 
 /** Absolute path to the WordPress directory. */

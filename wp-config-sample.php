@@ -117,7 +117,6 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 # Code Snippets Plugin
 //define('CODE_SNIPPETS_SAFE_MODE', true);
 
-
 #ACF License Key
 //define('ACF_5_KEY','');
 
@@ -137,9 +136,20 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 # File Editing
 //define( 'DISALLOW_FILE_MODS', FALSE );
 //define( 'DISALLOW_FILE_EDIT', FALSE );
-//define( 'FS_METHOD', 'direct' );
 //define( 'FS_CHMOD_DIR', 0755 );
 //define( 'FS_CHMOD_FILE', 0644 );
+
+//define( 'FS_METHOD', 'direct' );
+//define('FS_METHOD', 'ftpext'); // forces the filesystem method: "direct", "ssh", "ftpext", or "ftpsockets"
+
+//define('FTP_BASE', '/path/to/wordpress/'); // absolute path to root installation directory
+//define('FTP_CONTENT_DIR', '/path/to/wordpress/wp-content/'); // absolute path to "wp-content" directory
+//define('FTP_PLUGIN_DIR ', '/path/to/wordpress/wp-content/plugins/'); // absolute path to "wp-plugins" directory
+//define('FTP_PUBKEY', '/home/username/.ssh/id_rsa.pub'); // absolute path to your SSH public key
+//define('FTP_PRIVKEY', '/home/username/.ssh/id_rsa'); // absolute path to your SSH private key
+//define('FTP_USER', 'username'); // either your FTP or SSH username
+//define('FTP_PASS', 'password'); // password for FTP_USER username
+//define('FTP_HOST', 'ftp.domain.tld:21'); // hostname:port combo for your SSH/FTP server
 
 
 /** Absolute path to the WordPress directory. */

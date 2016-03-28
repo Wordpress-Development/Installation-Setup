@@ -104,9 +104,11 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 
 
 # Cookie Paths (if changing admin url names)
-//define('SITECOOKIEPATH', preg_replace('|https?://[^/]+|i', '', 'http://www.example.com' . '/' ) );
-//define('ADMIN_COOKIE_PATH', SITECOOKIEPATH . 'dashboard');
-
+// define('COOKIE_DOMAIN', '.example.com'); // don't omit the leading '.'
+//define('COOKIEPATH', preg_replace('|https?://[^/]+|i', '', get_option('home').'/'));
+//define('SITECOOKIEPATH', preg_replace('|https?://[^/]+|i', '', get_option('siteurl').'/'));
+//define('PLUGINS_COOKIE_PATH', preg_replace('|https?://[^/]+|i', '', WP_PLUGIN_URL));
+//define('ADMIN_COOKIE_PATH', SITECOOKIEPATH.'wp-admin');
 
 # Cron
 //define( 'DISABLE_WP_CRON', false );
@@ -123,14 +125,14 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define('WPCOM_API_KEY','your-key');
 
 
-define( 'WP_HTTP_BLOCK_EXTERNAL', true );
-define( 'WP_ACCESSIBLE_HOSTS', 'api.wordpress.org,*.github.com' );
+//define( 'WP_HTTP_BLOCK_EXTERNAL', true );
+//define( 'WP_ACCESSIBLE_HOSTS', 'api.wordpress.org,*.github.com' );
 
 # Disable all automatic updates:
 //define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 # Enable all core updates, including minor and major (true, false, minor)
-define( 'WP_AUTO_UPDATE_CORE', true ); 
+//define( 'WP_AUTO_UPDATE_CORE', true ); 
 
 # File Editing
 //define( 'DISALLOW_FILE_MODS', FALSE );

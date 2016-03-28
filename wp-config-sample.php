@@ -31,25 +31,44 @@ define('NONCE_SALT', 'put your unique phrase here');
 
 # Folder Constants
 /* 
+
 $wp_content = 'wp-content';
 $plugins = 'plugins';
+$mu-plugins = 'mu-plugins';
+
+
 
 define( 'WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] ); // automatic
 define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] ); // automatic
+
+// Custom wp-content directory
 define( 'WP_CONTENT_FOLDERNAME', 'site' ); // wp-content folder name
 //define('WP_CONTENT_DIR',$_SERVER['DOCUMENT_ROOT'] . WP_CONTENT_FOLDERNAME );
 define( 'WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME ); 
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . WP_CONTENT_FOLDERNAME );
+
+// Custom plugins directory
 define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . $plugins );
 define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 
+// Custom mu-plugins directory
+define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . $mu-plugins );
+define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . $mu-plugins );
+
+// Custom uploads directory
+//define('UPLOADS', 'media'); // can have compatability issues with plugins
+
+# New Theme Directory
+define( 'CUSTOM_THEME_DIR', WP_CONTENT_URL . '/skins' );
+
 //define('WP_DEFAULT_THEME', 'my-custom-theme-directory-name-here');
-//define('UPLOADS', 'assets'); // can have compatability issues with plugins
 //define('TEMPLATEPATH', get_template_directory()); 
 //define('STYLESHEETPATH', get_stylesheet_directory());
 //define('TEMPLATEPATH', '/absolute/path/to/wp-content/themes/active-theme');
 //define('STYLESHEETPATH', '/absolute/path/to/wp-content/themes/active-theme');
 // */
+
+
 
 # SSL Encryption - https://letsencrypt.org/getting-started/
 //define('FORCE_SSL_LOGIN', true);
@@ -152,6 +171,7 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define('FTP_HOST', 'ftp.domain.tld:21'); // hostname:port combo for your SSH/FTP server
 
 
+
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
@@ -160,3 +180,5 @@ require_once(ABSPATH . 'wp-settings.php');
 
 
 // register_theme_directory( dirname( __FILE__ ) . '/assets' );
+if ( !defined('WP_THEME_DIR') )
+	register_theme_directory( CUSTOM_THEME_DIR );

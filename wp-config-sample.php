@@ -11,6 +11,8 @@ define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', 'utf8_unicode_ci');
 $table_prefix  = 'aym_';
 
+
+
 /**#@+
  * Authentication Unique Keys and Salts: https://api.wordpress.org/secret-key/1.1/salt/
  */
@@ -24,9 +26,7 @@ define('LOGGED_IN_SALT', 'put your unique phrase here');
 define('NONCE_SALT', 'put your unique phrase here');
 /**#@-*/
 
-# SSL Encryption - https://letsencrypt.org/getting-started/
-//define('FORCE_SSL_LOGIN', true);
-//define('FORCE_SSL_ADMIN', true);
+
 
 
 # Folder Constants
@@ -50,6 +50,11 @@ define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 //define('TEMPLATEPATH', '/absolute/path/to/wp-content/themes/active-theme');
 //define('STYLESHEETPATH', '/absolute/path/to/wp-content/themes/active-theme');
 // */
+
+# SSL Encryption - https://letsencrypt.org/getting-started/
+//define('FORCE_SSL_LOGIN', true);
+//define('FORCE_SSL_ADMIN', true);
+
 
 
 # Caching
@@ -131,3 +136,6 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
+
+// register_theme_directory( dirname( __FILE__ ) . '/assets' );

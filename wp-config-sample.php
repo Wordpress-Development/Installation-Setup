@@ -11,10 +11,6 @@ define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', 'utf8_unicode_ci');
 $table_prefix  = 'aym_';
 
-
-// SSL Encryption - https://letsencrypt.org/getting-started/
-
-
 /**#@+
  * Authentication Unique Keys and Salts: https://api.wordpress.org/secret-key/1.1/salt/
  */
@@ -28,6 +24,10 @@ define('LOGGED_IN_SALT', 'put your unique phrase here');
 define('NONCE_SALT', 'put your unique phrase here');
 /**#@-*/
 
+# SSL Encryption - https://letsencrypt.org/getting-started/
+//define('FORCE_SSL_LOGIN', true);
+//define('FORCE_SSL_ADMIN', true);
+
 
 # Folder Constants
 /* 
@@ -37,11 +37,13 @@ $plugins = 'plugins';
 define( 'WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] ); // automatic
 define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] ); // automatic
 define( 'WP_CONTENT_FOLDERNAME', 'site' ); // wp-content folder name
-define( 'WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME );
+//define('WP_CONTENT_DIR',$_SERVER['DOCUMENT_ROOT'] . WP_CONTENT_FOLDERNAME );
+define( 'WP_CONTENT_DIR', ABSPATH . WP_CONTENT_FOLDERNAME ); 
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . WP_CONTENT_FOLDERNAME );
 define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/' . $plugins );
 define( 'WP_PLUGIN_URL', WP_CONTENT_URL . '/' . $plugins );
 
+//define('WP_DEFAULT_THEME', 'my-custom-theme-directory-name-here');
 //define('UPLOADS', 'assets'); // can have compatability issues with plugins
 //define('TEMPLATEPATH', get_template_directory()); 
 //define('STYLESHEETPATH', get_stylesheet_directory());
@@ -112,6 +114,9 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 #ACF License Key
 //define('ACF_5_KEY','');
 
+#Akismet Key
+//define('WPCOM_API_KEY','your-key');
+
 
 # File Editing
 //define( 'DISALLOW_FILE_MODS', FALSE );
@@ -121,7 +126,6 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define( 'FS_CHMOD_FILE', 0664 );
 
 
- /* That's all, stop editing! Happy blogging. */
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');

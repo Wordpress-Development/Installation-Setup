@@ -123,6 +123,15 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define('WPCOM_API_KEY','your-key');
 
 
+define( 'WP_HTTP_BLOCK_EXTERNAL', true );
+define( 'WP_ACCESSIBLE_HOSTS', 'api.wordpress.org,*.github.com' );
+
+# Disable all automatic updates:
+//define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+# Enable all core updates, including minor and major (true, false, minor)
+define( 'WP_AUTO_UPDATE_CORE', true ); 
+
 # File Editing
 //define( 'DISALLOW_FILE_MODS', FALSE );
 //define( 'DISALLOW_FILE_EDIT', FALSE );

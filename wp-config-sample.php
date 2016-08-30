@@ -171,6 +171,12 @@ define( 'ENFORCE_GZIP', true ); // forces gzip for compression (default is defla
 //define('FTP_HOST', 'ftp.domain.tld:21'); // hostname:port combo for your SSH/FTP server
 
 
+# Plugins 
+// define('UBERMENU_AUTO_UPDATES', 1); // Auto Update Ubermenu
+// define('CODE_SNIPPETS_SAFE_MODE', true); // Safe Mode Condesnippets
+// define('ACF_5_KEY',''); // ACF License Key
+
+
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
